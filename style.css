@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Prata&display=swap');
+
+@-webkit-keyframes PULSE{
+  0%{color:rgb(255, 255, 255);}	
+ 110%{color: black;}
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: #fff;
+    background-color: #2f4f4f;
+    font-family: 'Prata', sans-serif;
+      
+}
+
+
+
+.container {
+    display: grid;
+  
+    grid-template-areas:
+      "header header header"
+      "nav content side"
+      "footer footer footer";
+  
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 10px;
+  
+    height: 100vh;
+  }
+
+  header {
+    grid-area: header;
+    background-color: #a9a9a9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+   
+  }
+
+  header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 4em;
+    margin-top: 20px;
+    background-color: #a9a9a9;
+  }
+  
+  nav {
+    grid-area: nav;
+    margin-left: 0.5rem;
+    border-right: 1px solid #fff;
+    
+
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    position: sticky;
+    
+  }
+
+  .nav-links li {
+    /*Will want to set the nav bar to scroll with the page but not mobile, only over certain px */
+    padding: 10px;
+    
+  }
+
+
+
+  .nav-links a {
+    font-size: 1.25em;
+    text-decoration: none;
+    
+  }
+
+  .nav-links a:hover {
+    font-size: 1.25em;
+    text-decoration: underline;
+    transition: all 0.3s ease-in-out
+    
+  }
+  
+  main {
+    grid-area: content;
+    
+  }
+
+  main .test{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main .test h1{
+    font-size: 1.5em;
+    font-family: 'Courier New', Courier, monospace;
+    color: red;
+    -webkit-animation: PULSE 0.5s infinite;
+    -webkit-animation-duration: 2000ms;
+
+  }
+
+  main .opening-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  /* Carousel Wrapper Start */
+
+  :root {
+    --size-width: 600px;
+    --size-height: 350px;
+  }
+  
+  /* Default Sizes */
+  .carousel-wrapper {
+    width: calc(var(--size-width) * 1.3);
+    height: calc(var(--size-height) * 1.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
+    
+    border-radius: 20px;
+    margin: 50px auto 20px;
+    
+  }
+
+  .carousel-wrapper h1 {
+    padding: 20px;
+    font-size: 2em;
+    
+  }
+
+  /* TEST
+  .carousel-wrapper:hover + * {
+    filter: blur(3px);
+    transition: all 1s ease;
+  }
+
+  */
+
+  .carousel-wrapper:hover {
+    background-color: #213d3d;
+    transition: all 1s ease;
+    width: calc(var(--size-width) * 1.6);
+    height: calc(var(--size-height) * 1.7);
+    filter: none;
+  }
+
+  
+
+  .carousel-wrapper:hover h1{
+    background-color: #213d3d;
+    transition: all 1s ease;
+    font-size: 3em;
+   
+  }
+  
+  .carousel-container {
+    width: var(--size-width);
+    height: var(--size-height);
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  
+  .carousel {
+    display: flex;
+    width: calc(var(--size-width) * 3);
+    animation: sliding 20s infinite;
+  }
+  
+  .carousel div {
+    width: var(--size-width);
+    height: var(--size-height);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .carousel:hover {
+    animation-play-state: paused;
+  }
+  
+  .carousel .image-one {
+    background-image: url("https://images.unsplash.com/photo-1480936600919-bffa6b7ecf1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  }
+  
+  .carousel .image-two {
+    background-image: url("https://images.unsplash.com/photo-1475053081036-c8eb31d187b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  }
+  
+  .carousel .image-three {
+    background-image: url("https://images.unsplash.com/photo-1525278070609-779c7adb7b71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  }
+  
+  @keyframes sliding {
+    20% {
+      transform: translateX(0);
+    }
+    33.33% {
+      transform: translateX(calc(-1 * var(--size-width)));
+    }
+    55% {
+      transform: translateX(calc(-1 * var(--size-width)));
+    }
+    66.6% {
+      transform: translateX(calc(-2 * var(--size-width)));
+    }
+
+    85% {
+      transform: translateX(calc(-2 * var(--size-width)));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Responsive Sizes */
+  @media screen and (max-width: 768px) {
+    :root {
+      --size-width: 240px;
+      --size-height: 150px;
+    }
+  
+    .carousel-wrapper {
+      width: calc(var(--size-width) * 1.3);
+      height: calc(var(--size-height) * 1.4);
+    }
+  
+    .carousel-container {
+      width: var(--size-width);
+      height: var(--size-height);
+    }
+  
+    .carousel {
+      width: calc(var(--size-width) * 3);
+    }
+  
+    .carousel > div {
+      width: var(--size-width);
+      height: var(--size-height);
+    }
+  
+    @keyframes sliding {
+      20% {
+        transform: translateX(0);
+      }
+      33.33% {
+        transform: translateX(calc(-1 * var(--size-width)));
+      }
+      55% {
+        transform: translateX(calc(-1 * var(--size-width)));
+      }
+      66.6% {
+        transform: translateX(calc(-2 * var(--size-width)));
+      }
+  
+      85% {
+        transform: translateX(calc(-2 * var(--size-width)));
+      }
+      100% {
+        transform: translateX(0);
+      }
+  }
+  
+}
+
+/* Carousel Wrapper END */
+
+main .intro-section {
+  display: flex;
+  align-items: center;
+    justify-content: center;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    margin: 20px 20px;
+}
+
+main .intro-section .intro{
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 20px;
+
+}
+
+main .intro-section .intro h1{
+ font-size: 2.25em;
+ font-weight: 600;
+ 
+
+}
+
+main .intro-section .intro h3{
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+  max-width: 190px;
+ 
+ }
+
+ main .intro-section .intro p{
+  font-size: 1.25em;
+ 
+ }
+
+  main .tile-section{
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    
+  }
+
+  main .tiles{
+    border: 2px solid #fff;
+    padding: 2rem;
+    border-radius: 1em;
+        
+  }
+
+  main .tiles h1{
+     padding: 2rem;
+        
+  }
+
+  main .article-heading .articles:hover {
+    border: 1px solid #fff;
+  }
+
+  main .article-heading {
+    margin: 10px;
+    text-align: center;
+    
+  }
+
+  main .article-heading h1 {
+    font-size: 3em;
+    font-family: 'Oswald';
+    
+  }
+
+  main .articles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main .articles .tiles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  main .articles .tiles h2{
+    background-color: #213d3d;
+    padding: 5px 20px;
+    border: 1px solid #a9a9a9;
+    border-radius: 10px;
+    font-size: 1.5em
+  }
+
+  main .articles .tiles h2:hover{
+    background-color: #ffffff;
+    border: 1px solid #cdcdcd;
+    color: #000000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  main .articles img{
+    max-width: 50vh;
+    width: 300px;
+    height: 200px;
+  }
+  
+  
+  aside {
+    grid-area: side;
+    margin-right: 0.5rem;
+    border-left: 1px solid #fff;
+  }
+
+  /* Ads should scroll with the main content */
+
+  aside .ads {
+    text-align: center;
+  }
+
+  aside .ads h2 {
+    font-size: 1.25em;
+    font-family: 'Prata', sans-serif;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 1em;
+  }
+  
+  footer {
+    grid-area: footer;
+  }
+
+
+  @media (max-width: 768px) {
+    .container {
+      grid-template-areas:
+        "header"
+        "nav"
+        "content"
+        "side"
+        "footer";
+  
+      grid-template-columns: 1fr;
+      grid-template-rows:
+        auto /* Header */
+        minmax(75px, auto) /* Nav */
+        1fr /* Content */
+        minmax(75px, auto) /* Sidebar */
+        auto; /* Footer */
+    }
+  
+    nav, aside {
+      margin: 0;
+    }
+  }
